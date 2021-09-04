@@ -169,7 +169,7 @@ resource "aws_apigatewayv2_vpc_link" "this" {
 
   name               = lookup(each.value, "name", each.key)
   security_group_ids = each.value["security_group_ids"]
-  subnet_ids         = each.value["subnet_ids"]
+  subnet_ids         = []
 
   tags = merge(var.tags, var.vpc_link_tags, lookup(each.value, "tags", {}))
 }
